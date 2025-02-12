@@ -1,15 +1,12 @@
-import React, { useState } from "react";
-import Login from "./Login";
+import React, { useState } from 'react';
+import Child from './Child';
 
-function App() {
+function Parent() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>{isLoggedIn ? "Welcome! You are logged in 🎉" : "Please log in"}</h1>
-      <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-    </div>
+    <Child isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
   );
 }
 
-export default App;
+export default Parent;
