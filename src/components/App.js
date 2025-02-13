@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Child from './Child';
+import index from './index.js';
 
 function Parent() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
