@@ -23,6 +23,6 @@ function Child({ isLoggedIn, setIsLoggedIn }) {
   }
 }
 
-export default Child;
+export default index;
 
 ReactDOM.render(<App />, document.getElementById("root"));
