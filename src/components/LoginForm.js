@@ -1,23 +1,26 @@
 
 import React from 'react';
+import "./../styles/App.css";
+const LoginForm = ({ isLoggedIn, setLoggedIn }) => {
+  
 
-function Child({ isLoggedIn, setIsLoggedIn }) {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setIsLoggedIn(true);
-  };
-
-  if (isLoggedIn) {
-    return <h2>Welcome, you are logged in!</h2>;
-  } else {
     return (
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Name" />
-        <input type="password" placeholder="Password" />
-        <button type="submit">Login</button>
+      <>
+      {idLoggedIn ? (
+        <p className="logged-in-heading">Yor Are Logged in!</p>
+        ) : (
+        <div className="Form-container">
+      <form className="login-form">
+        <input type="text" placeholder="Name" className="form-input"/>
+        <input type="password" placeholder="Password" className="form-input"/>
+        <button onClick={() =>  setLoggedIn(true)} className="form-button">
+      Login
+      </button>
       </form>
+      </div>
+  )}
+  </>
     );
-  }
-}
+};
 
-export default index;
+export default LoginForm;
