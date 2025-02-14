@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
-import index from './index.js';
+import React from 'react';
+import { useState} from "react";
+import LoginForm from "./LoginForm.js";
+import "./../styles/App.css";
 
-function Parent() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+const App = () => {
+  const [isLoggedIn, setLoggedIn] = useState(false);
   
   return (
-    <Child isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+   <div id- "parent-component" className- "app-container">
+    <h1 className- "app-title">Parent Component</h1>
+  <LoginForm isLoggedIn-{isLoggedIn} setLoggedIn-{setLoggedIn} />
+    </div>
   );
-}
+};
 
-export default Parent;
+export default App;
