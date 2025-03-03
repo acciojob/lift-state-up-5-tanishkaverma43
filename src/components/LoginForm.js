@@ -1,26 +1,29 @@
+import { useState } from "react";
 
-import React from 'react';
-import "./../styles/App.css";
-const LoginForm = ({ isLoggedIn, setLoggedIn }) => {
-  
+function ParentComponent() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    return (
-      <>
-      {idLoggedIn ? (
-        <p className="logged-in-heading">Yor Are Logged in!</p>
-        ) : (
-        <div className="Form-container">
-      <form className="login-form">
-        <input type="text" placeholder="Name" className="form-input"/>
-        <input type="password" placeholder="Password" className="form-input"/>
-        <button onClick={() =>  setLoggedIn(true)} className="form-button">
-      Login
-      </button>
-      </form>
-      </div>
-  )}
-  </>
-    );
-};
+  return (
+    <div className="p-6 max-w-md mx-auto text-center border rounded-lg shadow-lg">
+      <h1 className="text-2xl font-bold mb-4">{isLoggedIn ? "Welcome Back!" : "Please Log In"}</h1>
+      <ChildComponent isLoggedIn={isLoggedIn} onLogin={() => setIsLoggedIn(true)} />
+    </div>
+  );
+}
 
-export default LoginForm;
+function ChildComponent({ isLoggedIn, onLogin }) {
+  if (isLoggedIn) {
+    return <p className="text-green-500">You are logged in!</p>;
+  }
+
+  return (
+    <button
+      className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+      onClick={onLogin}
+    >
+      Log In
+    </button>
+  );
+}
+
+export default ParentComponent;
